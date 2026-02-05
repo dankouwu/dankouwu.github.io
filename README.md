@@ -1,1 +1,1 @@
-# dankouwu.github.io
+# Cyberdoba - responzivní práce
