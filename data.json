@@ -1,0 +1,64 @@
+{
+  "categories": {
+    "dev": {
+      "title": "DEVELOPMENT",
+      "notes": [
+        {
+          "title": "Figma cleanup",
+          "text": "The design team is going to kill me if I don't fix the spacing on the landing page mockup. Everything is currently 'pixel-perfect' (it's not).",
+          "dueDate": "2026-03-14"
+        },
+        {
+          "title": "Auth bug #42",
+          "text": "The session token keeps expiring exactly 3 minutes early. Check the JWT expiration logic again. It's definitely a timezone thing.",
+          "dueDate": "2026-03-16"
+        },
+        {
+          "title": "Refactor script.js",
+          "text": "I promised I'd clean this up two weeks ago. It's a mess of template clones and manual DOM manipulation. Future me will be grateful.",
+          "dueDate": "2026-03-20"
+        }
+      ]
+    },
+    "uni": {
+      "title": "SCHOOL",
+      "notes": [
+        {
+          "title": "C# Project",
+          "text": "Finish the C# project. It's due next week.",
+          "dueDate": "2026-03-16"
+        },
+        {
+          "title": "History Essay",
+          "text": "First draft of 'How the Steam Engine Ruined My Sleep Schedule'. Need to find at least three sources that aren't Wikipedia.",
+          "dueDate": "2026-03-18"
+        },
+        {
+          "title": "Physics Lab",
+          "text": "Upload the CSV data from Friday's experiment. The pendulum results look suspicious, but we're rolling with it.",
+          "dueDate": "2026-03-25"
+        }
+      ]
+    },
+    "life": {
+      "title": "PERSONAL",
+      "notes": [
+        {
+          "title": "Grocery run",
+          "text": "Out of coffee and oat milk. Also, try to buy something green this time. No more frozen pizza for a week.",
+          "dueDate": "2026-03-13"
+        },
+        {
+          "title": "Dentist (pain)",
+          "text": "Appointment at 2:00 PM. Don't forget to lie about how often I floss. Hope it's not another cavity.",
+          "dueDate": "2026-03-18"
+        },
+        {
+          "title": "Book Flights",
+          "text": "Check if prices for the Berlin trip dropped. If not, just bite the bullet and book. Use the points if possible.",
+          "dueDate": "2026-03-30"
+        }
+      ]
+    }
+  }
+}
