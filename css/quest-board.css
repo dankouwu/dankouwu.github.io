@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --habitTitle-color: white;
+    --habitTitle-font-size: 1.25em;
+    --habitTitle-font-weight: 700;
+    --habitXp-font-size: 14px;
+    --habitXp-font-weight: 400;
+    --habitXp-color: #aaaaac;
+    --habitXpUnit-color: rgb(120, 255, 120);
+    --habit-border-color: rgba(255, 255, 255, 0.15);
+    --habit-easy-badge-color: rgb(120, 255, 120);
+    --habit-easy-badge-border-color: rgba(120, 255, 120, 0.3);
+    --habit-easy-badge-shadow-color: rgba(120, 255, 120, 0.15);
+    --habit-medium-badge-color: rgb(255, 255, 120);
+    --habit-medium-badge-border-color: rgba(255, 255, 120, 0.3);
+    --habit-medium-badge-shadow-color: rgba(255, 255, 120, 0.15);
+    --habit-hard-badge-color: rgb(255, 120, 120);
+    --habit-hard-badge-border-color: rgba(255, 120, 120, 0.3);
+    --habit-hard-badge-shadow-color: rgba(255, 120, 120, 0.15);
+}
+
+body {
+    background-color: #0f0f11;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    min-height: 100vh;
+    flex: 1;
+    margin-top: 5em;
+}
+
+.boardHeader {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    width: 90%;
+}
+
+.pageTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 0.5em;
+    font-size: 3em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.pageSubtitle {
+    font-size: 1.25em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.questContainer {
+    max-width: 45em;
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.25em;
+    width: 92%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.habit {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    transition: transform 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
+    border-radius: 1.25em;
+    color: white;
+    padding: 1.25em;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    border: var(--habit-border-color) solid 1px;
+    justify-content: center;
+    display: flex;
+}
+
+.habit:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(1.02) translateY(-2px);
+}
+
+.habit:has(.habitBadge.easy):hover {
+    box-shadow: var(--habit-easy-badge-shadow-color) 0 0 10px;
+    border-color: var(--habit-easy-badge-border-color);
+}
+
+.habit:has(.habitBadge.medium):hover {
+    box-shadow: var(--habit-medium-badge-shadow-color) 0 0 10px;
+    border-color: var(--habit-medium-badge-border-color);
+}
+
+.habit:has(.habitBadge.hard):hover {
+    box-shadow: var(--habit-hard-badge-shadow-color) 0 0 10px;
+    border-color: var(--habit-hard-badge-border-color);
+}
+
+.habitContent {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 1.25em;
+    align-items: center;
+}
+
+.habitText {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.habitHeader {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.badgeWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.habitBadge {
+    font-size: 11px;
+    border-radius: 6px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+}
+
+.habitBadge.easy {
+    background: rgba(120, 255, 120, 0.05);
+    border: var(--habit-easy-badge-border-color) solid 1px;
+    color: var(--habit-easy-badge-color);
+}
+
+.habitBadge.medium {
+    border: var(--habit-medium-badge-border-color) solid 1px;
+    background: rgba(255, 255, 120, 0.05);
+    color: var(--habit-medium-badge-color);
+}
+
+.habitBadge.hard {
+    border: var(--habit-hard-badge-border-color) solid 1px;
+    background: rgba(255, 120, 120, 0.05);
+    color: var(--habit-hard-badge-color);
+}
+
+.streakBadge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 126, 95, 0.3);
+    background: rgba(255, 126, 95, 0.1);
+    align-items: center;
+    display: flex;
+    gap: 4px;
+}
+
+.streakIcon {
+    width: 14px;
+    height: 14px;
+    color: #ff7e5f;
+}
+
+.streakCount {
+    font-weight: 700;
+    color: #ff7e5f;
+    font-size: 12px;
+}
+
+.habitIcon {
+    border-radius: 12px;
+    height: 3.5em;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    border: var(--habit-border-color) solid 1px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    width: 3.5em;
+}
+
+.habit:hover .habitIcon {
+    filter: drop-shadow(0 0 7px currentColor);
+    transform: scale(1.1);
+}
+
+.habitTitle {
+    font-weight: var(--habitTitle-font-weight);
+    color: white;
+    font-size: var(--habitTitle-font-size);
+}
+
+.habitDescription {
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+.progressSection {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.progressBar {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progressBarFill {
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.actionSection {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.progressInput {
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 14px;
+    flex: 1;
+    -moz-appearance: textfield;
+}
+
+.progressInput::-webkit-outer-spin-button,
+.progressInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.progressInput:focus {
+    border-color: rgb(120, 255, 120);
+}
+
+.progressInput:disabled {
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+}
+
+.updateProgressBtn {
+    background: rgb(120, 255, 120);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 8px 14px;
+    color: black;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.updateProgressBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background-color: rgba(120, 255, 120, 0.8);
+    box-shadow: 0 0 10px rgb(120, 255, 120);
+}
+
+.updateProgressBtn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.removeHabitBtn {
+    background: rgba(255, 120, 120, 0.1);
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: rgb(255, 120, 120);
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 120, 120, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.removeHabitBtn:hover {
+    border-color: rgb(255, 120, 120);
+    transform: scale(1.1);
+    background: rgba(255, 120, 120, 0.2);
+}
+
+.settingsSection {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 92%;
+    max-width: 45em;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25em;
+}
+
+.settingsTitle {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.settingsButtons {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.settingsBtn {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex;
+    padding: 6px 20px;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(3px);
+    font-size: 14px;
+}
+
+.settingsBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.settingsBtn.danger {
+    border-color: rgba(255, 120, 120, 0.2);
+    color: rgb(255, 120, 120);
+}
+
+.settingsBtn.danger:hover {
+    border-color: rgb(255, 120, 120);
+    background: rgba(255, 120, 120, 0.1);
+}
+
+.emptyMessage {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.emptyMessage a {
+    color: rgb(120, 255, 120);
+    font-size: 1em;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.emptyMessage a:hover {
+    color: rgb(100, 200, 100);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    .pageTitle {
+        font-size: 2.25em;
+        text-align: center;
+    }
+    .pageSubtitle {
+        font-size: 1.1em;
+        text-align: center;
+        padding: 0 1.5em;
+    }
+    .habitContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1em;
+    }
+    .habitText {
+        align-items: center;
+    }
+    .habitHeader {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .iconWrapper {
+        align-self: center;
+    }
+    .habitIcon {
+        height: 4em;
+        width: 4em;
+    }
+    .progressSection {
+        align-items: center;
+    }
+    .settingsButtons {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 2em;
+    }
+    .settingsBtn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .pageTitle {
+        font-size: 1.75em;
+    }
+    .habit {
+        padding: 1.5em 1em;
+    }
+    .habitHeader {
+        flex-direction: column;
+        align-items: center;
+    }
+    .badgeWrapper {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .actionSection {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    .progressInput {
+        width: 100% !important;
+        text-align: center;
+    }
+    .updateProgressBtn {
+        width: 100%;
+        padding: 12px;
+    }
+    .removeHabitBtn {
+        width: 100%;
+        height: 40px;
+    }
+}

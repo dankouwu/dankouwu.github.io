@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0f11;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(120, 255, 120, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 255, 120, 0.5);
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    background-color: #0f0f11;
+    font-weight: 400;
+    min-height: 300vh;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    
+    width: 100%;
+    justify-content: start;
+    display: flex;
+    padding: 0 1.25em;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    
+    width: 100%;
+    flex: 1;
+}
+
+.welcomeLanding {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5em;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 6em 0 2em 0;
+}
+
+.joinWrapper {
+    color: black;
+    border-radius: 10px;
+    margin-top: 2em;
+    font-weight: 700;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: rgb(120, 255, 120);
+    position: relative;
+    padding: 12px 24px;
+    width: 18em;
+    cursor: pointer;
+    align-items: center;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, width 0.5s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.joinWrapper:hover {
+    transform: scale(1.05);
+    background-color: rgba(120, 255, 120, 0.8);
+    box-shadow: 0 0 1.25em rgb(120, 255, 120);
+}
+
+.joinWrapper svg {
+    color: black;
+    height: 1.25em;
+    width: 1.25em;
+    transition: transform 0.5s ease;
+}
+
+.joinWrapper:hover svg {
+    transform: translateX(15px);
+}
+
+.featuresLink {
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5em;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.featuresLink:hover {
+    transform: translateY(4px);
+    color: rgb(120, 255, 120);
+}
+
+.landingTitle {
+    color: rgb(120, 255, 120);
+    text-shadow: rgba(120, 255, 120, 0.25) 0 0 1.25em;
+    width: 100%;
+    text-align: center;
+    max-width: 62.5em;
+    font-weight: 700;
+}
+
+@keyframes titleAnimation {
+    0% {
+        filter: drop-shadow(rgba(120, 255, 120, 0.6) 0 0 1.25em);
+    }
+    50% {
+        filter: drop-shadow(rgba(120, 255, 120, 0.75) 0 0 1.85em);  
+    }
+    100% {
+        filter: drop-shadow(rgba(120, 255, 120, 0.6) 0 0 1.25em);
+    }
+}
+
+.landingTitle app-logo {
+    height: 15.65em;
+    transition: scale 1.5s ease, filter 1.5s ease;
+}
+
+.landingTitle app-logo:hover {
+    scale: 1.05;
+    filter: drop-shadow(rgba(120, 255, 120, 0.5) 0 0 1.25em);
+    animation: none;
+}
+
+.landingTitle svg {
+    animation: titleAnimation 5s ease-in-out infinite;
+    filter: drop-shadow(rgb(120, 255, 120) 0 0 1.25em);
+}
+
+.landingSubtitle {
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    margin-top: 0.5em;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 0 10px;
+    font-size: 2em;
+    width: 90%;
+    max-width: 40em;
+}
+
+.howItWorks {
+    flex-direction: column;
+    margin-bottom: 8em;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.howItWorks h2 {
+    margin-top: 2em;
+    font-weight: 700;
+    text-align: center;
+    animation: glow 5s ease-in-out infinite;
+    color: white;
+    margin-bottom: 0.5em;
+    font-size: 5em;
+    filter: drop-shadow(rgba(255, 255, 255, 0.5) 0 0 10px);
+    transition: filter 1s ease;
+}
+
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(rgba(255, 255, 255, 0.3) 0 0 10px); }
+    50% { filter: drop-shadow(rgba(255, 255, 255, 0.6) 0 0 1.25em); }
+}
+
+.howItWorks .guide {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 80em;
+}
+
+.howItWorks .guide li {
+    transition: transform 0.5s ease, border 0.5s ease, box-shadow 0.5s ease, flex 0.5s ease;
+    border-radius: 1.25em;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    width: 100%;
+    max-width: 25em;
+    backdrop-filter: blur(3px);
+    border: rgba(255, 255, 255, 0.15) 1px solid;
+    color: white;
+    flex: 1;
+    flex-direction: column;
+    margin-bottom: 5em;
+    align-items: center;
+}
+
+.howItWorks .guide li:hover {
+    box-shadow: 0 0 10px rgba(120, 255, 120, 0.15);
+    border: rgba(120, 255, 120, 0.3) 1px solid;
+    flex: 1.1;
+}
+
+.howItWorks .guide li:nth-child(2):hover {
+    border: rgba(255, 255, 120, 0.3) 1px solid;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 120, 0.15);
+}
+
+.howItWorks .guide li:nth-child(3):hover {
+    box-shadow: 0 0 10px rgba(255, 120, 120, 0.15);
+    border: rgba(255, 120, 120, 0.3) 1px solid;
+}
+
+.howItWorks .guide li .stepNumber {
+    font-weight: 700;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    color: rgba(120, 255, 120, 0);
+    margin-bottom: 5px;
+    font-size: 5em;
+    text-align: center;
+    transition: -webkit-text-stroke 0.5s ease, color 0.5s ease, text-shadow 0.5s ease, font-size 0.5s ease;
+}
+
+.howItWorks .guide li:hover .stepNumber {
+    -webkit-text-stroke: 0px;
+    font-size: 6em;
+    color: rgb(120, 255, 120);
+    text-shadow: 0 0 15px rgba(120, 255, 120, 0.3);
+}
+
+.howItWorks .guide li:nth-child(2):hover .stepNumber {
+    -webkit-text-stroke: 0px;
+    color: rgb(255, 255, 120);
+    text-shadow: 0 0 15px rgba(255, 120, 120, 0.3);
+}
+
+.howItWorks .guide li:nth-child(3):hover .stepNumber {
+    -webkit-text-stroke: 0px;
+    color: rgb(255, 120, 120);
+    text-shadow: 0 0 15px rgba(255, 120, 120, 0.3);
+}
+
+.howItWorks .guide li .stepTitle {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1em;
+    font-size: 2em;
+    text-align: center;
+}
+
+.howItWorks .guide li .stepDescription {
+    color: rgb(155, 155, 155);
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techStack h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    animation: glow 5s ease-in-out infinite;
+    font-size: 5em;
+    filter: drop-shadow(rgba(255, 255, 255, 0.5) 0 0 10px);
+}
+
+.techStack p {
+    color: white;
+    font-weight: 700;
+    max-width: 60em;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.techStack ul {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    max-width: 80em;
+}
+
+.techStack .techItem {
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    border-radius: 1.25em;
+    backdrop-filter: blur(3px);
+    aspect-ratio: 1/1;
+    width: 15em;
+    transition: transform 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
+    border: rgba(255, 255, 255, 0.15) 1px solid;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techStack .techItem .title {
+    margin-top: 0;
+    text-shadow: rgba(0, 0, 0, 0.75) 0 0 10px;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.techStack .techItem .description {
+    color: #dadada;
+    text-shadow: rgba(0, 0, 0, 0.75) 0 0 10px;
+    font-size: 0.8em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.techStack .techItem .icon {
+    width: 10em;
+    color: #575758;
+    position: absolute;
+    height: 10em;
+    z-index: -1;
+    transition: color 0.5s ease, filter 0.5s ease;
+}
+
+.techStack li:hover .techItem {
+    transform: scale(1.05);
+}
+
+.techStack li:nth-child(8n+1):hover .techItem {
+    box-shadow: 0 0 10px rgba(255, 128, 128, 0.15);
+    border: rgba(255, 128, 128, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+1):hover .icon {
+    filter: drop-shadow(rgb(255, 128, 128) 0 0 7px);
+    color: rgb(255, 128, 128);
+}
+
+.techStack li:nth-child(8n+2):hover .techItem {
+    box-shadow: 0 0 10px rgba(255, 178, 102, 0.15);
+    border: rgba(255, 178, 102, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+2):hover .icon {
+    filter: drop-shadow(rgb(255, 178, 102) 0 0 7px);
+    color: rgb(255, 178, 102);
+}
+
+.techStack li:nth-child(8n+3):hover .techItem {
+    box-shadow: 0 0 10px rgba(255, 255, 153, 0.15);
+    border: rgba(255, 255, 153, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+3):hover .icon {
+    filter: drop-shadow(rgb(255, 255, 153) 0 0 7px);
+    color: rgb(255, 255, 153);
+}
+
+.techStack li:nth-child(8n+4):hover .techItem {
+    box-shadow: 0 0 10px rgba(153, 255, 153, 0.15);
+    border: rgba(153, 255, 153, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+4):hover .icon {
+    filter: drop-shadow(rgb(153, 255, 153) 0 0 7px);
+    color: rgb(153, 255, 153);
+}
+
+.techStack li:nth-child(8n+5):hover .techItem {
+    box-shadow: 0 0 10px rgba(153, 255, 255, 0.15);
+    border: rgba(153, 255, 255, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+5):hover .icon {
+    filter: drop-shadow(rgb(153, 255, 255) 0 0 7px);
+    color: rgb(153, 255, 255);
+}
+
+.techStack li:nth-child(8n+6):hover .techItem {
+    box-shadow: 0 0 10px rgba(153, 204, 255, 0.15);
+    border: rgba(153, 204, 255, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+6):hover .icon {
+    filter: drop-shadow(rgb(153, 204, 255) 0 0 7px);
+    color: rgb(153, 204, 255);
+}
+
+.techStack li:nth-child(8n+7):hover .techItem {
+    box-shadow: 0 0 10px rgba(178, 153, 255, 0.15);
+    border: rgba(178, 153, 255, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+7):hover .icon {
+    filter: drop-shadow(rgb(178, 153, 255) 0 0 7px);
+    color: rgb(178, 153, 255);
+}
+
+.techStack li:nth-child(8n+8):hover .techItem {
+    box-shadow: 0 0 10px rgba(221, 153, 255, 0.15);
+    border: rgba(221, 153, 255, 0.5) 1px solid;
+}
+.techStack li:nth-child(8n+8):hover .icon {
+    filter: drop-shadow(rgb(221, 153, 255) 0 0 7px);
+    color: rgb(221, 153, 255);
+}
+
+@media (max-width: 1024px) {
+    .howItWorks {
+        margin-bottom: 5em;
+    }
+    .howItWorks .guide {
+        flex-direction: column;
+        gap: 2em;
+    }
+    .howItWorks .guide li {
+        width: 100%;
+        max-width: 30em;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: auto;
+        min-height: 20em;
+    }
+    .techStack ul {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .howItWorks h2, .techStack h2 {
+        font-size: 3em;
+    }
+    .landingTitle app-logo {
+        height: 8em;
+    }
+    .landingSubtitle {
+        font-size: 1.5em;
+    }
+    .techStack p {
+        font-size: 1.1em;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .howItWorks h2, .techStack h2 {
+        font-size: 2.25em;
+    }
+    .landingTitle app-logo {
+        height: 6em;
+    }
+    .landingSubtitle {
+        font-size: 1.25em;
+    }
+    .joinWrapper {
+        width: 100%;
+        max-width: 18em;
+    }
+}
+
+.levelUpNotification {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    box-shadow: 0 0.5em 2em rgba(241, 196, 15, 0.4);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1em;
+    color: #000;
+    padding: 1em 2em;
+    left: 50%;
+    transform: translateX(-50%) translateY(5em);
+    bottom: 2em;
+    font-family: 'Outfit', sans-serif;
+    z-index: 10000;
+    position: fixed;
+}
+
+.levelUpNotification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.levelUpContent {
+    align-items: center;
+    gap: 1em;
+    display: flex;
+}
+
+.levelUpText h3 {
+    letter-spacing: 0.1em;
+    font-weight: 900;
+    margin: 0;
+}
+
+.levelUpText p {
+    font-weight: 500;
+    margin: 0;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quest Board - LVL1</title>
+
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/quest-board.css" />
+  <link rel="stylesheet" href="./css/background.css" />
+  <link rel="stylesheet" href="./components/Navbar/navbar.css" />
+  <link rel="stylesheet" href="./components/Footer/footer.css" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+  <script src="./components/Logo.js" defer></script>
+  <script src="./js/services/StorageService.js" defer></script>
+  <script src="./js/services/RPGService.js" defer></script>
+  <script src="./js/services/HabitService.js" defer></script>
+  <script src="./js/services/StatsService.js" defer></script>
+  <script src="./js/AnimatedBackground.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="./js/ScrollAnimation.js" defer></script>
+  <script src="./js/ScrollIntoView.js" defer></script>
+  <script src="./components/Navbar/Navbar.js" defer></script>
+  <script src="./components/Footer/Footer.js" defer></script>
+  <script src="./js/QuestBoardPage.js" defer></script>
+</head>
+
+<body>
+  <main class="container">
+    <canvas id="canvas"></canvas>
+    <app-navbar id="app-navbar"></app-navbar>
+
+    <header class="boardHeader">
+      <h1 class="pageTitle">Quest Board</h1>
+      <p class="pageSubtitle">Track your progress, obtain rewards.</p>
+    </header>
+
+    <section class="questContainer">
+      
+    </section>
+
+    <section class="settingsSection">
+      <h2 class="settingsTitle">Settings & Data</h2>
+      <div class="settingsButtons">
+        <button id="exportBtn" class="settingsBtn">
+          <i data-lucide="download"></i> Export Data
+        </button>
+        <label for="importFile" class="settingsBtn">
+          <i data-lucide="upload"></i> Import Data
+          <input type="file" id="importFile" style="display: none;">
+        </label>
+        <button id="resetBtn" class="settingsBtn danger">
+          <i data-lucide="trash-2"></i> Reset Progress
+        </button>
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main>
+
+  <template id="habitCardTemplate">
+    <article class="habit">
+      <div class="hoverGlow"></div>
+      <div class="habitContent">
+        <div class="iconWrapper">
+          <i class="habitIcon" data-lucide="" style=""></i>
+        </div>
+
+        <div class="habitText">
+          <div class="habitHeader">
+            <h2 class="habitTitle"></h2>
+            <div class="badgeWrapper">
+              <span class="habitBadge"></span>
+              <div class="streakBadge">
+                <i data-lucide="flame" class="streakIcon"></i>
+                <span class="streakCount">0</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="habitDescription"></p>
+
+          <div class="progressSection">
+            <div class="progressInfo">
+              <span class="habitXp">0 / 0</span>
+              <span class="habitXpUnit"></span>
+            </div>
+            <div class="progressBar">
+              <div class="progressBarFill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div class="actionSection">
+            <input type="number" class="progressInput" placeholder="Enter value">
+            <button class="updateProgressBtn">Log</button>
+            <button class="removeHabitBtn" aria-label="Remove habit">&times;</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+</body>
+
+</html>

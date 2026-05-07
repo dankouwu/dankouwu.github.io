@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+app-navbar {
+    z-index: 9999;
+    font-family: 'Outfit', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+}
+
+.navWrapper {
+    height: 3.5em;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: background-color 0.5s ease, backdrop-filter 0.5s ease, height 0.5s ease;
+    display: flex;
+}
+
+.navWrapper.notTop {
+    backdrop-filter: blur(10px);
+    background-color: rgba(20, 20, 20, 0.85);
+    height: 4em;
+}
+
+.navigation {
+    color: white;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5em;
+}
+
+.logo {
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+}
+
+.logo .logoIcon {
+    transition: filter 0.3s ease, scale 0.3s ease;
+    color: white;
+    height: 20px;
+}
+
+app-logo {
+    transition: scale 0.3s ease, filter 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+    aspect-ratio: 113 / 35;
+}
+
+.linkNav {
+    margin-right: 1.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 1.25em;
+}
+
+.linkNav a {
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+}
+
+.linkNav a:hover {
+    transform: scale(1.1);
+    text-shadow: rgba(255, 255, 255, 0.3) 0 0 10px;
+}
+
+.userStats {
+    display: flex;
+    max-width: 15em;
+    flex: 1;
+    margin-right: 1.5em;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.levelBadge {
+    padding: 4px 8px;
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    font-weight: 800;
+    font-size: 12px;
+    color: #000;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.globalXpBar {
+    height: 6px;
+    overflow: hidden;
+    flex: 1;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.globalXpFill {
+    height: 100%;
+    background: linear-gradient(90deg, #f1c40f, #f39c12);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.streak {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.streakIcon {
+    stroke: url(#streakGradient);
+    width: 1.5em;
+    height: 1.5em;
+    fill: url(#streakGradient);
+}
+
+.streakCount {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: white;
+}
+
+.menu {
+    width: 35px;
+    margin-left: 1em;
+    z-index: 10001;
+    pointer-events: auto;
+    position: relative;
+    padding: 0;
+    display: none;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dotGrid {
+    grid-template-rows: repeat(3, 4px);
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(3, 4px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: auto;
+    gap: 5px;
+    width: 22px;
+    height: 22px;
+}
+
+.dot {
+    background-color: white;
+    border-radius: 50%;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    width: 4px;
+    height: 4px;
+}
+
+.hideOnActive {
+    transition: opacity 0.3s ease;
+}
+
+.menu.active .dotGrid {
+    transform: rotate(180deg);
+}
+
+.menu.active .hideOnActive {
+    opacity: 0;
+}
+
+.menu.active .dot:not(.hideOnActive) {
+    background-color: #78ff78;
+}
+
+.mobileNavigation {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background-color: rgba(10, 10, 10, 0.95);
+    height: 100vh;
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    z-index: 10000;
+    pointer-events: none;
+    align-items: center;
+    backdrop-filter: blur(20px) brightness(0.5);
+    transform: translateY(-100%);
+    flex-direction: column;
+}
+
+.mobileNavigation.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mobileLinkNav {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+}
+
+.mobileLinkNav a {
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    text-transform: none;
+    letter-spacing: 1px;
+    font-size: 2.5em;
+    color: white;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.mobileLinkNav a:hover {
+    color: #78ff78;
+    text-shadow: 0 0 20px rgba(120, 255, 120, 0.4);
+    transform: scale(1.1);
+}
+
+@media (max-width: 1100px) {
+    .navigation {
+        padding: 0 1.25em;
+    }
+
+    .streak {
+        margin-right: 0.5em;
+    }
+
+    .linkNav, .userStats {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobileLinkNav a {
+        font-size: 1.75em;
+    }
+}

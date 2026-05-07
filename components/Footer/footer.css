@@ -1,0 +1,126 @@
+app-footer {
+    display: block;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(20, 20, 20, 0.1);
+    margin-top: 5em;
+    min-height: 20vh;
+    padding: 2em 0;
+    align-items: center;
+    font-size: 14px;
+    flex-direction: column;
+}
+
+.footerWrapper {
+    width: 90%;
+    max-width: 80em;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.footerLinks {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    line-height: 1.5;
+    align-items: center;
+}
+
+.footerLinks ul {
+    gap: 2em;
+    align-items: center;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+}
+
+.footerLinks ul li a {
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footerLinks ul li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footerLinks ul li:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+    
+
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.footerCopyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .footerWrapper {
+        width: 90%;
+    }
+    .footerLinks ul {
+        gap: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerLinks ul {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+footer .icon {
+    width: 1.5em;
+    height: 1.5em;
+    padding: 8px;
+    color: white;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+footer .icon:hover {
+    filter: drop-shadow(white 0 0 2px);
+    transform: scale(1.1);
+}
+
+.separator {
+    background-color: rgba(255, 255, 255, 0.1);
+    max-width: 28.15em;
+    width: 100%;
+    height: 1px;
+}
+
+footer .social a i,
+footer .social a svg {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+}

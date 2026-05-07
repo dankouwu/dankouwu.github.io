@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - LVL1</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/stats.css" />
+    <link rel="stylesheet" href="./css/background.css" />
+    <link rel="stylesheet" href="./components/Navbar/navbar.css" />
+    <link rel="stylesheet" href="./components/Footer/footer.css" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <script src="./components/Logo.js" defer></script>
+    <script src="./js/services/StorageService.js" defer></script>
+    <script src="./js/services/RPGService.js" defer></script>
+    <script src="./js/services/HabitService.js" defer></script>
+    <script src="./js/services/StatsService.js" defer></script>
+    <script src="./js/AnimatedBackground.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/ScrollAnimation.js" defer></script>
+    <script src="./js/ScrollIntoView.js" defer></script>
+    <script src="./components/Navbar/Navbar.js" defer></script>
+    <script src="./components/Footer/Footer.js" defer></script>
+    <script src="./js/StatsPage.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <canvas id="canvas"></canvas>
+        <app-navbar id="app-navbar"></app-navbar>
+
+        <header class="statsHeader">
+            <h1 class="pageTitle">Player Stats</h1>
+            <p class="pageSubtitle">Visualize your path to greatness.</p>
+        </header>
+
+        <section class="summaryCards">
+            <article class="summaryCard">
+                <span class="label">Total XP</span>
+                <span id="totalXpVal" class="value">0</span>
+            </article>
+            <article class="summaryCard">
+                <span class="label">Level</span>
+                <span id="currentLevelVal" class="value">1</span>
+            </article>
+            <article class="summaryCard">
+                <span class="label">Active Quests</span>
+                <span id="activeQuestsVal" class="value">0</span>
+            </article>
+            <article class="summaryCard">
+                <span class="label">Joined</span>
+                <span id="joinedAtVal" class="value">---</span>
+            </article>
+        </section>
+
+        <section class="statsGrid">
+            <article class="statsCard">
+                <h3>Weekly Activity (XP)</h3>
+                <div class="chartContainer">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </article>
+
+            <article class="statsCard">
+                <h3>Habit XP Distribution</h3>
+                <div class="chartContainer">
+                    <canvas id="distributionChart"></canvas>
+                </div>
+            </article>
+        </section>
+        <app-footer></app-footer>
+    </main>
+</body>
+
+</html>

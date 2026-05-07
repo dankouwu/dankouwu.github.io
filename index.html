@@ -2,78 +2,146 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disclaimer | Personal Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LVL1</title>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                    sans: ['Ubuntu', 'sans-serif'],
-                },
-                extend: {
-                    colors: {
-                        primarytext: '#ffffff',
-                        secondarytext: '#999999',
-                        background: '#000000',
-                        cardbackground: '#1a1a1a',
-                        cardhighlighted: '#2a2a2a',
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/background.css" />
+    <link rel="stylesheet" href="./components/Footer/footer.css" />
+    <link rel="stylesheet" href="./components/Navbar/navbar.css" />
+    <link rel="stylesheet" href="./components/Features/features.css" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <script src="./components/Logo.js" defer></script>
+    <script src="./js/services/StorageService.js" defer></script>
+    <script src="./js/services/RPGService.js" defer></script>
+    <script src="./js/services/HabitService.js" defer></script>
+    <script src="./js/services/StatsService.js" defer></script>
+    <script src="./js/AnimatedBackground.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/ScrollAnimation.js" defer></script>
+    <script src="./js/ScrollIntoView.js" defer></script>
+    <script src="./components/Navbar/Navbar.js" defer></script>
+    <script src="./components/Footer/Footer.js" defer></script>
+    <script src="./components/Features/Features.js" defer></script>
 </head>
 
-<body
-    class="bg-background flex flex-col items-center justify-center min-h-screen w-full bg-[url(https://4kwallpapers.com/images/wallpapers/dark-background-abstract-background-network-3d-background-7680x4320-8324.png)] bg-cover bg-center">
-    <main
-        class="text-white bg-zinc-900 p-8 rounded-2xl border-white/10 border-[1px] max-w-[950px] md:w-[60%] lg:w-[60%] xl:w-[40%] sm:w-[95%] shadow-[0_0_40px_rgba(0,0,0,1)]">
-        <header class="flex flex-row mb-6 gap-4">
-            <div class="p-3 bg-red-600/20 rounded-xl drop-shadow-[0_0_10px_rgba(255,0,0,0.5)]" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+<body>
+    
+    <main class="container">
+        <canvas id="canvas" width="500px" height="500px"></canvas>
+        <app-navbar id="app-navbar"></app-navbar>
+        
+        
+
+        <div class="welcomeLanding">
+            <div class="landingTitle">
+                <app-logo></app-logo>
+            </div>
+            <p class="landingSubtitle">an RPG Habit Tracker</p>
+
+            <a class="joinWrapper" href="./get-started.html" aria-label="Start your adventure with LVL1">
+                <span class="joinText">Join the Adventure</span>
+                <svg class="joinArrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
                 </svg>
-            </div>
-            <div class="flex flex-col items-start justify-center">
-                <h1 class="text-2xl font-bold">Important Disclaimer</h1>
-                <p class="text-red-400 text-sm font-medium tracking-wider">EXPERIMENTAL INTERFACE</p>
-            </div>
-        </header>
+            </a>
+            <a class="featuresLink" onclick="scrollToId('features', 800, -400)" role="button" tabindex="0"
+                aria-label="Scroll to features section">Check out our features!</a>
+        </div>
 
-        <section class="space-y-4">
-            <p class="text-secondarytext text-md leading-relaxed">
-                This project is a <strong class="font-bold text-white">Tailwind CSS Design Concept</strong>.
-                It is built to demonstrate UI/UX patterns and does not include a real database,
-                server-side logic, or persistent storage features.
-            </p>
+        <app-features></app-features>
 
-            <blockquote
-                class="text-secondarytext text-md italic bg-[#0a0b0c] p-4 rounded-r-lg border-l-4 border-red-600">
-                "The purpose of this site is purely aesthetic exploration. Proceeding will grant access to the static UI
-                components only."
-            </blockquote>
+        <section id="howItWorks" class="howItWorks">
+            <h2>Start Your Journey</h2>
+            <ol class="guide">
+                <li>
+                    <div class="stepNumber">1</div>
+                    <div class="stepTitle">Choose Your Goals</div>
+                    <div class="stepDescription">Select the habits you want to track</div>
+                </li>
+                <li>
+                    <div class="stepNumber">2</div>
+                    <div class="stepTitle">Track Your Progress</div>
+                    <div class="stepDescription">Track your progress and earn rewards</div>
+                </li>
+                <li>
+                    <div class="stepNumber">3</div>
+                    <div class="stepTitle">Level Up</div>
+                    <div class="stepDescription">Level up and unlock new features</div>
+                </li>
+            </ol>
         </section>
 
-        <footer class="flex flex-row items-center justify-end mt-8 gap-4">
-            <button type="button"
-                class="text-secondarytext p-2 font-medium hover:text-white transition-all duration-300 hover:scale-95">
-                Cancel
-            </button>
-            <a href="dashboard.html"
-                class="text-white bg-red-600 p-2 rounded-xl font-bold shadow-lg shadow-red-600/20 px-6 hover:bg-red-700 transition-all duration-300 hover:scale-[0.98] text-center">
-                Continue to Dashboard
-            </a>
-        </footer>
+        <section class="techStack">
+            <h2>Tech Stack</h2>
+            <p>LVL1 is designed to be a simple, lightweight, and privacy-focused habit tracker. Your data lives on your
+                device and is not stored on any external servers.</p>
+            <ul>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="braces" class="icon"></i>
+                        <p class="title">ES2025 JS</p>
+                        <p class="description">Modern Syntax</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="database" class="icon"></i>
+                        <p class="title">LocalStorage</p>
+                        <p class="description">Privacy First</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="brush" class="icon"></i>
+                        <p class="title">CSS3</p>
+                        <p class="description">Design</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="code" class="icon"></i>
+                        <p class="title">HTML5</p>
+                        <p class="description">Structure</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="puzzle" class="icon"></i>
+                        <p class="title">Web Components</p>
+                        <p class="description">Reusability</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="sparkles" class="icon"></i>
+                        <p class="title">Lucide</p>
+                        <p class="description">Icons</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="git-branch" class="icon"></i>
+                        <p class="title">Git</p>
+                        <p class="description">Version Control</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="techItem">
+                        <i data-lucide="chart-spline" class="icon"></i>
+                        <p class="title">Chart.js</p>
+                        <p class="description">Data Visualization</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <app-footer></app-footer>
     </main>
 </body>
 

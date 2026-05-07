@@ -1,0 +1,52 @@
+{
+  "features": [
+    {
+      "id": "questBoard",
+      "icon": "clipboard-list",
+      "title": "Quest Board",
+      "description": "Transform your daily to-do list into an RPG quest log. Earn XP for every task you complete."
+    },
+    {
+      "id": "habitManagement",
+      "icon": "square-pen",
+      "title": "Habit Management",
+      "description": "Easily create, edit, and categorize your habits. Set difficulty levels to adjust rewards."
+    },
+    {
+      "id": "gamificationSystem",
+      "icon": "gamepad-2",
+      "title": "Gamification System",
+      "description": "Level up your character, unlock achievements, and turn productivity into play."
+    },
+    {
+      "id": "streaks",
+      "icon": "flame",
+      "title": "Streaks",
+      "description": "Maintain daily consistency to build powerful streaks and boost your score multipliers."
+    },
+    {
+      "id": "analytics",
+      "icon": "chart-line",
+      "title": "Analytics",
+      "description": "Visualize your progress with detailed charts. Identify patterns to optimize your routine."
+    },
+    {
+        "id": "privacy",
+        "icon": "shield-check",
+        "title": "Privacy",
+        "description": "Your data is yours. Everything is stored locally on your device with no external tracking."
+    },
+    {
+        "id": "openSource",
+        "icon": "git-branch",
+        "title": "Open Source",
+        "description": "Transparent and community-driven. Explore the codebase and contribute on GitHub."
+    },
+    {
+      "id": "settings",
+      "icon": "settings",
+      "title": "System Settings",
+      "description": "Tailor the experience to your needs. Customize themes, notifications, and audio."
+    }
+  ]
+}

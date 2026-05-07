@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - LVL1</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/get-started.css" />
+    <link rel="stylesheet" href="./components/Navbar/navbar.css" />
+    <link rel="stylesheet" href="./components/Footer/footer.css" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <script src="./components/Logo.js" defer></script>
+    <script src="./js/services/StorageService.js" defer></script>
+    <script src="./js/services/RPGService.js" defer></script>
+    <script src="./js/services/HabitService.js" defer></script>
+    <script src="./js/services/StatsService.js" defer></script>
+    <script src="./js/AnimatedBackground.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/ScrollAnimation.js" defer></script>
+    <script src="./js/ScrollIntoView.js" defer></script>
+    <script src="./components/Navbar/Navbar.js" defer></script>
+    <script src="./components/Footer/Footer.js" defer></script>
+    <script src="./js/GetStartedPage.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <app-navbar id="app-navbar"></app-navbar>
+
+        <h1 class="pageTitle">Get Started</h1>
+        <p class="pageSubtitle">Choose the habits you want to track and start your journey.</p>
+        
+        <section class="habitContainer">
+            
+        </section>
+
+        <div class="habitDetails hidden" role="dialog" aria-labelledby="modalTitle">
+            <button class="closeButton" aria-label="Close modal" onclick="this.parentElement.classList.add('hidden')">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 id="modalTitle" class="habitName"></h2>
+            <p class="habitDescription"></p>
+            <i class="habitIcon" data-lucide=""></i>
+            <ul class="habitRewardsList">
+            </ul>
+        </div>
+        <app-footer></app-footer>
+    </main>
+
+    <template id="habit-template">
+        <article class="habit">
+            <div class="habitContent">
+                <i class="habitIcon" data-lucide=""></i>
+                <h2 class="habitTitle"></h2>
+                <p class="habitDescription"></p>
+            </div>
+            <button class="habitButton">
+                <span class="buttonText">View Details</span>
+                <span class="buttonIcon" data-lucide="info"></span>
+            </button>
+        </article>
+    </template>
+</body>
+
+</html>
